@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Sự kiện - Bệnh viện Đại học Phenikaa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 50px 0;
+            text-align: left;
+        }
+        .page-header h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        .event-meta {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 15px;
+            flex-wrap: wrap;
+        }
+        .meta-item {
+            background: rgba(255,255,255,0.15);
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .meta-item strong {
+            margin-right: 5px;
+        }
+        
+        .content-section {
+            padding: 50px 0;
+        }
+        
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+        
+        @media (max-width: 992px) {
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .main-content h3 {
+            color: var(--primary-color);
+            font-size: 22px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 10px;
+        }
+        
+        .agenda-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .agenda-table th, .agenda-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .agenda-table th {
+            background-color: #f8f9fa;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        .agenda-table tr:last-child td {
+            border-bottom: none;
+        }
+        .agenda-table td.time-col {
+            font-weight: 600;
+            color: var(--secondary-color);
+            white-space: nowrap;
+        }
+        
+        .sidebar .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-top: 4px solid var(--secondary-color);
+        }
+        .sidebar h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 10px;
+            padding-left: 15px;
+            position: relative;
+        }
+        .sidebar ul li::before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .action-box {
+            text-align: center;
+        }
+        .action-box p {
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+        .btn-large-register {
+            display: inline-block;
+            background-color: var(--success-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        .btn-large-register:hover {
+            background-color: #27ae60;
+        }
+        
+        #error-msg {
+            display: none;
+            text-align: center;
+            padding: 50px;
+            color: var(--accent-color);
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://phenikaamec.com/assets/image/header/logo.png" alt="Phenikaa MEC Logo" style="height: 45px; margin-bottom: 5px;">
+                    <p style="font-size: 13px;">Trung tâm Đào tạo, Nghiên cứu khoa học, Hợp tác đối ngoại</p>
+                </a>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">Trang chủ</a>
+                <a href="chuc-nang.html">Chức năng, Nhiệm vụ</a>
+                <a href="hoi-nghi.html" class="active">Hội nghị, Hội thảo</a>
+                <a href="khoa-hoc.html">Khóa học đào tạo</a>
+            </nav>
+            <a href="khoa-hoc.html" class="btn-primary">Đăng ký học</a>
+        </div>
+    </header>
+
+    <div id="error-msg">Không tìm thấy thông tin sự kiện!</div>
+
+    <div id="event-container" style="display: none;">
+        <div class="page-header">
+            <div class="container">
+                <h1 id="ev-title">Tên Hội Thảo</h1>
+                <div class="event-meta">
+                    <div class="meta-item"><strong>Ngày:</strong> <span id="ev-date"></span></div>
+                    <div class="meta-item"><strong>Thời gian:</strong> <span id="ev-time"></span></div>
+                    <div class="meta-item"><strong>Trạng thái:</strong> <span id="ev-status"></span></div>
+                </div>
+            </div>
+        </div>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="detail-grid">
+                    <div class="main-content">
+                        <div class="event-info-block" style="margin-bottom: 30px;">
+                            <h3>Thông tin chung</h3>
+                            <p><strong>Mục tiêu:</strong></p>
+                            <ul id="ev-objectives" style="margin-bottom: 15px; padding-left: 20px;">
+                                <!-- Trình đổ dữ liệu JS -->
+                            </ul>
+                            <p><strong>Đối tượng tham dự:</strong> <span id="ev-audience"></span></p>
+                            <p><strong>Hình thức:</strong> <span id="ev-format"></span></p>
+                            <p><strong>Đơn vị tổ chức:</strong> <span id="ev-organizer"></span></p>
+                        </div>
+                        
+                        <h3>Chương trình dự kiến (Agenda)</h3>
+                        <table class="agenda-table">
+                            <thead>
+                                <tr>
+                                    <th>Thời gian</th>
+                                    <th>Nội dung</th>
+                                    <th>Báo cáo viên / Phụ trách</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ev-agenda">
+                                <!-- Trình đổ dữ liệu JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="sidebar">
+                        <div class="card action-box">
+                            <h4>Tham dự sự kiện</h4>
+                            <p>Đăng ký ngay để nhận chứng chỉ CME và tài liệu sau khóa học.</p>
+                            <a href="index.html" class="btn-large-register">Đăng ký tham dự</a>
+                        </div>
+                        
+                        <div class="card">
+                            <h4>Thông tin tổ chức</h4>
+                            <ul style="margin-bottom: 20px;">
+                                <li><strong>Địa điểm:</strong> <br><span id="ev-location"></span></li>
+                            </ul>
+                            <h4>Thành phần Chủ tọa</h4>
+                            <ul id="ev-chairs">
+                                <!-- Trình đổ dữ liệu JS -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-info">
+                <h3>BỆNH VIỆN ĐẠI HỌC PHENIKAA</h3>
+                <p>Trung tâm Đào tạo, Nghiên cứu khoa học, Hợp tác đối ngoại</p>
+                <p>Địa chỉ: Tổ 5 Hòe Thị, phường Xuân Phương, thành phố Hà Nội</p>
+                <p>Điện thoại: (024) 6687 3489</p>
+                <p>Email: benhvien.daihoc@phenikaa.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Phenikaa MEC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="events-data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lấy ID từ URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const eventId = urlParams.get('id');
+            
+            if (eventId && eventsData[eventId]) {
+                const data = eventsData[eventId];
+                
+                document.getElementById('event-container').style.display = 'block';
+                
+                document.getElementById('ev-title').innerText = data.title;
+                document.getElementById('ev-date').innerText = data.date;
+                document.getElementById('ev-time').innerText = data.time;
+                document.getElementById('ev-status').innerText = data.status;
+                document.getElementById('ev-location').innerText = data.location;
+                document.getElementById('ev-audience').innerText = data.targetAudience;
+                document.getElementById('ev-format').innerText = data.format;
+                document.getElementById('ev-organizer').innerText = data.organizer;
+                
+                // Load objectives
+                const ulObjectives = document.getElementById('ev-objectives');
+                data.objectives.forEach(obj => {
+                    let li = document.createElement('li');
+                    li.innerText = obj;
+                    ulObjectives.appendChild(li);
+                });
+                
+                // Load chairs
+                const ulChairs = document.getElementById('ev-chairs');
+                data.chairs.forEach(chair => {
+                    let li = document.createElement('li');
+                    li.innerText = chair;
+                    ulChairs.appendChild(li);
+                });
+                
+                // Load agenda
+                const tbodyAgenda = document.getElementById('ev-agenda');
+                data.agenda.forEach(item => {
+                    let tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td class="time-col">${item.time}</td>
+                        <td>${item.content}</td>
+                        <td>${item.speaker}</td>
+                    `;
+                    tbodyAgenda.appendChild(tr);
+                });
+                
+                document.title = data.title + " - Bệnh viện Đại học Phenikaa";
+                
+            } else {
+                document.getElementById('error-msg').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hội nghị, Hội thảo - Bệnh viện Đại học Phenikaa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .content-section {
+            padding: 50px 0;
+        }
+        .section-title {
+            color: var(--primary-color);
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .event-date {
+            background: var(--secondary-color);
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .event-date.past {
+            background: #7f8c8d;
+        }
+        .event-status {
+            font-size: 12px;
+            background: rgba(255,255,255,0.2);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .event-body {
+            padding: 25px 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .event-body h3 {
+            color: var(--text-main);
+            font-size: 18px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        .btn-event {
+            margin-top: auto;
+            text-align: center;
+            display: inline-block;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .btn-register {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .btn-register:hover {
+            background-color: var(--secondary-color);
+        }
+        .btn-view {
+            background-color: #f1f3f4;
+            color: #5f6368;
+        }
+        .btn-view:hover {
+            background-color: #e8eaed;
+            color: #202124;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://phenikaamec.com/assets/image/header/logo.png" alt="Phenikaa MEC Logo" style="height: 45px; margin-bottom: 5px;">
+                    <p style="font-size: 13px;">Trung tâm Đào tạo, Nghiên cứu khoa học, Hợp tác đối ngoại</p>
+                </a>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">Trang chủ</a>
+                <a href="chuc-nang.html">Chức năng, Nhiệm vụ</a>
+                <a href="hoi-nghi.html" class="active">Hội nghị, Hội thảo</a>
+                <a href="khoa-hoc.html">Khóa học đào tạo</a>
+            </nav>
+            <a href="khoa-hoc.html" class="btn-primary">Đăng ký học</a>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Hội nghị, Hội thảo Khoa học</h1>
+            <p>Cập nhật thông tin các chương trình hội thảo, tập huấn chuyên môn y khoa liên tục</p>
+        </div>
+    </div>
+
+    <section class="content-section">
+        <div class="container">
+            
+            <h2 class="section-title">Sự kiện Sắp Diễn Ra</h2>
+            <div class="event-grid">
+                <!-- 260610 -->
+                <div class="event-card">
+                    <div class="event-date">
+                        <span>10/06/2026</span>
+                        <span class="event-status">Sắp diễn ra</span>
+                    </div>
+                    <div class="event-body">
+                        <h3>Hội thảo Liệu pháp sinh học - Chìa khóa mở ra trang mới cho bệnh nhân Hen nặng</h3>
+                        <a href="chi-tiet-hoi-nghi.html?id=260610" class="btn-event btn-register">Xem chi tiết</a>
+                    </div>
+                </div>
+
+                <!-- 260612 -->
+                <div class="event-card">
+                    <div class="event-date">
+                        <span>12/06/2026</span>
+                        <span class="event-status">Sắp diễn ra</span>
+                    </div>
+                    <div class="event-body">
+                        <h3>Hội thảo Dược lâm sàng</h3>
+                        <a href="chi-tiet-hoi-nghi.html?id=260612" class="btn-event btn-register">Xem chi tiết</a>
+                    </div>
+                </div>
+
+                <!-- 260613 -->
+                <div class="event-card">
+                    <div class="event-date">
+                        <span>13/06/2026</span>
+                        <span class="event-status">Sắp diễn ra</span>
+                    </div>
+                    <div class="event-body">
+                        <h3>Hội thảo Hóa xạ trị trong ung thư đầu cổ</h3>
+                        <a href="chi-tiet-hoi-nghi.html?id=260613" class="btn-event btn-register">Xem chi tiết</a>
+                    </div>
+                </div>
+
+                <!-- 260620 -->
+                <div class="event-card">
+                    <div class="event-date">
+                        <span>20/06/2026</span>
+                        <span class="event-status">Sắp diễn ra</span>
+                    </div>
+                    <div class="event-body">
+                        <h3>Hội thảo Liệu pháp lưu lượng cao trong hỗ trợ hô hấp trẻ em và trẻ sơ sinh</h3>
+                        <a href="chi-tiet-hoi-nghi.html?id=260620" class="btn-event btn-register">Xem chi tiết</a>
+                    </div>
+                </div>
+
+                <!-- 260705 -->
+                <div class="event-card">
+                    <div class="event-date">
+                        <span>05/07/2026</span>
+                        <span class="event-status">Sắp diễn ra</span>
+                    </div>
+                    <div class="event-body">
+                        <h3>Hội thảo Ngân hàng mô</h3>
+                        <a href="chi-tiet-hoi-nghi.html?id=260705" class="btn-event btn-register">Xem chi tiết</a>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Sự kiện Đã Diễn Ra</h2>
+            <div class="event-grid">
+                <!-- 260525 -->
+                <div class="event-card">
+                    <div class="event-date past">
+                        <span>25/05/2026</span>
+                        <span class="event-status">Đã kết thúc</span>
+                    </div>
+                    <div class="event-body">
+                        <h3>Hội thảo Phẫu thuật chỉnh hình xương hàm</h3>
+                        <a href="#" class="btn-event btn-view">Xem lại tài liệu</a>
+                    </div>
+                </div>
+
+                <!-- 260509 -->
+                <div class="event-card">
+                    <div class="event-date past">
+                        <span>09/05/2026</span>
+                        <span class="event-status">Đã kết thúc</span>
+                    </div>
+                    <div class="event-body">
+                        <h3>Hội thảo Y học hạt nhân</h3>
+                        <a href="#" class="btn-event btn-view">Xem lại tài liệu</a>
+                    </div>
+                </div>
+
+                <!-- 260321 -->
+                <div class="event-card">
+                    <div class="event-date past">
+                        <span>21/03/2026</span>
+                        <span class="event-status">Đã kết thúc</span>
+                    </div>
+                    <div class="event-body">
+                        <h3>Hội thảo Y học giấc ngủ</h3>
+                        <a href="#" class="btn-event btn-view">Xem lại tài liệu</a>
+                    </div>
+                </div>
+
+                <!-- 260307 -->
+                <div class="event-card">
+                    <div class="event-date past">
+                        <span>07/03/2026</span>
+                        <span class="event-status">Đã kết thúc</span>
+                    </div>
+                    <div class="event-body">
+                        <h3>Trở về giá trị cốt lõi của điều trị Implant trong thời đại số</h3>
+                        <a href="#" class="btn-event btn-view">Xem lại tài liệu</a>
+                    </div>
+                </div>
+
+                <!-- 251227 -->
+                <div class="event-card">
+                    <div class="event-date past">
+                        <span>27/12/2025</span>
+                        <span class="event-status">Đã kết thúc</span>
+                    </div>
+                    <div class="event-body">
+                        <h3>Hội thảo Ung thư biểu mô tế bào gan</h3>
+                        <a href="#" class="btn-event btn-view">Xem lại tài liệu</a>
+                    </div>
+                </div>
+
+                <!-- 251213 -->
+                <div class="event-card">
+                    <div class="event-date past">
+                        <span>13/12/2025</span>
+                        <span class="event-status">Đã kết thúc</span>
+                    </div>
+                    <div class="event-body">
+                        <h3>Hội thảo Siêu âm tim thai</h3>
+                        <a href="#" class="btn-event btn-view">Xem lại tài liệu</a>
+                    </div>
+                </div>
+
+                <!-- 251210 -->
+                <div class="event-card">
+                    <div class="event-date past">
+                        <span>10/12/2025</span>
+                        <span class="event-status">Đã kết thúc</span>
+                    </div>
+                    <div class="event-body">
+                        <h3>Hội thảo Vòng tròn tái sinh Implant</h3>
+                        <a href="#" class="btn-event btn-view">Xem lại tài liệu</a>
+                    </div>
+                </div>
+                
+                <!-- 251110 -->
+                <div class="event-card">
+                    <div class="event-date past">
+                        <span>10/11/2025</span>
+                        <span class="event-status">Đã kết thúc</span>
+                    </div>
+                    <div class="event-body">
+                        <h3>Hội thảo thực hành và chẩn đoán điều trị ung thư</h3>
+                        <a href="#" class="btn-event btn-view">Xem lại tài liệu</a>
+                    </div>
+                </div>
+                
+                <!-- 251003 -->
+                <div class="event-card">
+                    <div class="event-date past">
+                        <span>03/10/2025</span>
+                        <span class="event-status">Đã kết thúc</span>
+                    </div>
+                    <div class="event-body">
+                        <h3>Hội thảo Hội Phổi</h3>
+                        <a href="#" class="btn-event btn-view">Xem lại tài liệu</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-info">
+                <h3>BỆNH VIỆN ĐẠI HỌC PHENIKAA</h3>
+                <p>Trung tâm Đào tạo, Nghiên cứu khoa học, Hợp tác đối ngoại</p>
+                <p>Địa chỉ: Tổ 5 Hòe Thị, phường Xuân Phương, thành phố Hà Nội</p>
+                <p>Điện thoại: (024) 6687 3489</p>
+                <p>Email: benhvien.daihoc@phenikaa.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Phenikaa MEC. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

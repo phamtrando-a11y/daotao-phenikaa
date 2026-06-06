@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chức năng, Nhiệm vụ - Bệnh viện Đại học Phenikaa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .content-section {
+            padding: 50px 0;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .info-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--secondary-color);
+            transition: transform 0.3s;
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+        .info-card h3 {
+            color: var(--primary-color);
+            font-size: 20px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 10px;
+        }
+        .info-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .info-card ul li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 15px;
+            color: #555;
+        }
+        .info-card ul li::before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .org-chart {
+            margin-top: 60px;
+            text-align: center;
+        }
+        .org-chart img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://phenikaamec.com/assets/image/header/logo.png" alt="Phenikaa MEC Logo" style="height: 45px; margin-bottom: 5px;">
+                    <p style="font-size: 13px;">Trung tâm Đào tạo, Nghiên cứu khoa học, Hợp tác đối ngoại</p>
+                </a>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">Trang chủ</a>
+                <a href="chuc-nang.html" class="active">Chức năng, Nhiệm vụ</a>
+                <a href="hoi-nghi.html">Hội nghị, Hội thảo</a>
+                <a href="khoa-hoc.html">Khóa học đào tạo</a>
+            </nav>
+            <a href="khoa-hoc.html" class="btn-primary">Đăng ký học</a>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Chức năng & Nhiệm vụ</h1>
+            <p>Khám phá vai trò của Trung tâm Đào tạo, Nghiên cứu khoa học, Hợp tác đối ngoại</p>
+        </div>
+    </div>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="intro-text" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p>Trung tâm là đơn vị chuyên môn trực thuộc Ban Tổng Giám đốc, có chức năng tham mưu và tổ chức thực hiện các hoạt động đào tạo, bồi dưỡng chuyên môn nghiệp vụ, phát triển nguồn nhân lực y tế và triển khai nghiên cứu khoa học trong toàn bệnh viện.</p>
+            </div>
+
+            <div class="card-grid">
+                <!-- Đào tạo -->
+                <div class="info-card">
+                    <h3>1. Đào tạo</h3>
+                    <ul>
+                        <li>Tham mưu chiến lược, tổ chức quản lý công tác đào tạo, đào tạo lại, đào tạo thực hành cấp giấy phép hành nghề.</li>
+                        <li>Tổ chức các lớp bồi dưỡng/cập nhật kiến thức và cấp giấy chứng nhận CME cho mọi đối tượng.</li>
+                        <li>Chuẩn hóa chương trình đào tạo (Mục tiêu, Nội dung, Thời lượng, Bộ câu hỏi).</li>
+                        <li>Phân loại đào tạo: Cơ bản, Nâng cao, Chuyên sâu, Fellowship.</li>
+                        <li>Kiểm soát và quản lý hồ sơ, chất lượng giảng viên.</li>
+                        <li>Phối hợp trường Y Dược Phenikaa trong đào tạo sinh viên Y, bác sĩ nội trú, CKI, CKII, Thạc sĩ, Tiến sĩ.</li>
+                    </ul>
+                </div>
+
+                <!-- Chuyển giao -->
+                <div class="info-card">
+                    <h3>2. Chuyển giao, trao đổi chuyên môn</h3>
+                    <ul>
+                        <li>Tiếp nhận kỹ thuật mới từ cơ sở y tế có năng lực.</li>
+                        <li>Xây dựng "Gói kỹ thuật chuyển giao", "Gói chuyên gia hỗ trợ" cho tuyến dưới.</li>
+                        <li>Khảo sát và đề xuất ký kết hợp đồng hỗ trợ chuyên môn/chuyển giao kỹ thuật.</li>
+                        <li>Điều phối, tổ chức hội chẩn trực tiếp, trực tuyến, liên chuyên khoa.</li>
+                    </ul>
+                </div>
+
+                <!-- NCKH -->
+                <div class="info-card">
+                    <h3>3. Nghiên cứu khoa học</h3>
+                    <ul>
+                        <li>Tham mưu chuyển các đề tài NCKH từ Bệnh viện sang Đại học Phenikaa.</li>
+                        <li>Hỗ trợ Hội đồng khoa học kỹ thuật, Hội đồng đạo đức, Hội đồng sáng kiến.</li>
+                        <li>Quản lý tiến độ triển khai thực hiện các đề tài nghiên cứu.</li>
+                        <li>Hướng dẫn cán bộ y tế viết đề cương, báo cáo, bài báo khoa học trong nước và quốc tế.</li>
+                        <li>Định hướng lĩnh vực nghiên cứu: Ung bướu, Chẩn đoán hình ảnh, Y học hạt nhân, AI trong y khoa.</li>
+                    </ul>
+                </div>
+
+                <!-- Hợp tác đối ngoại -->
+                <div class="info-card">
+                    <h3>4. Hợp tác, đối ngoại</h3>
+                    <ul>
+                        <li>Xây dựng và triển khai chương trình hợp tác trong/ngoài nước về đào tạo, NCKH.</li>
+                        <li>Tổ chức làm việc với chuyên gia, đối tác, thực hiện thủ tục pháp lý.</li>
+                        <li>Phát triển mạng lưới đối tác chiến lược, chia sẻ kinh nghiệm, nâng cao uy tín Bệnh viện.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="org-chart">
+                <h3>Cơ cấu tổ chức</h3>
+                <p style="margin-bottom: 20px; color: #666;">Bao gồm Giám đốc, Phó giám đốc chuyên môn, Phó giám đốc vận hành cùng các phòng ban: Đào tạo, NCKH, Hợp tác đối ngoại.</p>
+                <!-- Placeholder for Org Chart Image if needed, currently omitted for clean design -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-info">
+                <h3>BỆNH VIỆN ĐẠI HỌC PHENIKAA</h3>
+                <p>Trung tâm Đào tạo, Nghiên cứu khoa học, Hợp tác đối ngoại</p>
+                <p>Địa chỉ: Tổ 5 Hòe Thị, phường Xuân Phương, thành phố Hà Nội</p>
+                <p>Điện thoại: (024) 6687 3489</p>
+                <p>Email: benhvien.daihoc@phenikaa.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Phenikaa MEC. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
