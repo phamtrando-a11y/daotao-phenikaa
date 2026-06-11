@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.disabled = true;
 
             // URL của Google Apps Script (Thực tế)
-            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxF-bL8fkBCjjfVcTxVnY7Z9dTegFQivtfsVCxGb7EirLyP6LQLrzzgf96Wfjj_zyQ9OA/exec';
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbww20LbGllmbIJs6tShlzUxxmDQcPyuS6OCwlRCzwQ_nLPQk6yX-o73sgjF9l8c8oAcBA/exec';
 
             // GỌI API THẬT
             fetch(SCRIPT_URL + "?action=register", {
