@@ -83,6 +83,37 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('qr-order-id').innerText = data.orderId;
                     if(data.qrUrl) {
                         document.getElementById('qr-code-img').src = data.qrUrl;
+                        
+                        // Bắt đầu vòng lặp kiểm tra thanh toán (Polling) mỗi 3 giây
+                        const checkInterval = setInterval(() => {
+                            fetch(SCRIPT_URL + "?action=check_payment", {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                                body: JSON.stringify({ action: 'check_payment', orderId: data.orderId })
+                            })
+                            .then(r => r.json())
+                            .then(resData => {
+                                if (resData.status === 'success') {
+                                    clearInterval(checkInterval);
+                                    document.getElementById('qr-payment-screen').innerHTML = `
+                                        <div style="text-align: center; padding: 30px;">
+                                            <div style="font-size: 60px; color: #2ecc71; margin-bottom: 20px;">✓</div>
+                                            <h2 style="color: #27ae60; margin-bottom: 15px;">Thanh toán thành công!</h2>
+                                            <p style="color: #555; font-size: 16px;">Cảm ơn bạn. Chúng tôi đã nhận được tiền và xác nhận đăng ký.</p>
+                                            <button type="button" class="btn-submit-green" style="margin-top: 25px;" onclick="document.getElementById('register-modal').style.display='none'">Đóng cửa sổ</button>
+                                        </div>
+                                    `;
+                                }
+                            })
+                            .catch(e => console.log('Polling error:', e));
+                        }, 3000);
+                        
+                        // Hủy vòng lặp nếu người dùng đóng modal
+                        closeBtn.addEventListener('click', () => clearInterval(checkInterval));
+                        window.addEventListener('click', function(event) {
+                            if (event.target === modal) clearInterval(checkInterval);
+                        });
+                        
                     } else {
                         // Nếu là hội thảo không có QR
                         document.getElementById('qr-code-img').style.display = 'none';
