@@ -37,28 +37,11 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             // Lấy dữ liệu form
-            const formObj = new FormData(form);
             const formData = {
                 action: 'register',
-                registrationType: 'course', // Default to course for the modal
-                fullName: formObj.get('fullName') || '',
-                dob: formObj.get('dob') || '',
-                gender: formObj.get('gender') || '',
-                cccd: formObj.get('cccd') || '',
-                cccdPlace: formObj.get('cccdPlace') || '',
-                workplace: formObj.get('workplace') || '',
-                degree: formObj.get('degree') || '',
-                taxCode: formObj.get('taxCode') || '',
-                invoiceCompany: formObj.get('invoiceCompany') || '',
-                email: formObj.get('email') || '',
-                phone: formObj.get('phone') || '',
-                specialty: formObj.get('specialty') || '',
-                courseName: formObj.get('courseName') || '',
-                audience: formObj.get('audience') || '',
-                duration: formObj.get('duration') || '',
-                startDate: formObj.get('startDate') || '',
-                endDate: formObj.get('endDate') || '',
-                fee: 1000000 // Có thể lấy tự động dựa vào khóa học nếu cần
+                fullName: form.querySelector('input[type="text"]').value, // Cần gán name hoặc id cho input để chính xác hơn, đây là demo
+                courseName: document.querySelector('input[value="Chẩn đoán và điều trị bệnh truyền nhiễm"]') ? document.querySelector('input[value="Chẩn đoán và điều trị bệnh truyền nhiễm"]').value : 'Khóa học Test',
+                fee: 1000000 
             };
             
             const submitBtn = form.querySelector('.btn-submit');
