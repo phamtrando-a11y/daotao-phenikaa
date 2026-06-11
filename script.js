@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 fee: 1000 // Mức phí test 1000đ
             };
             
-            const submitBtn = form.querySelector('.btn-submit');
+            const submitBtn = form.querySelector('button[type="submit"]');
             submitBtn.textContent = 'Đang xử lý...';
             submitBtn.disabled = true;
 
