@@ -109,7 +109,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         }, 3000);
                         
                         // Hủy vòng lặp nếu người dùng đóng modal
-                        closeBtn.addEventListener('click', () => clearInterval(checkInterval));
+                        if (closeBtn) closeBtn.addEventListener('click', () => clearInterval(checkInterval));
+                        if (btnCancel) btnCancel.addEventListener('click', () => clearInterval(checkInterval));
                         window.addEventListener('click', function(event) {
                             if (event.target === modal) clearInterval(checkInterval);
                         });
