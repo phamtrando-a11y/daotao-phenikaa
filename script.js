@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 duration: formObj.get('duration') || '',
                 startDate: formObj.get('startDate') || '',
                 endDate: formObj.get('endDate') || '',
-                fee: 1000000 // Có thể lấy tự động dựa vào khóa học nếu cần
+                fee: 1000 // Mức phí test 1000đ
             };
             
             const submitBtn = form.querySelector('.btn-submit');
