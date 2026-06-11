@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxF-bL8fkBCjjfVcTxVnY7Z9dTegFQivtfsVCxGb7EirLyP6LQLrzzgf96Wfjj_zyQ9OA/exec';
 
             // GỌI API THẬT
-            fetch(SCRIPT_URL, {
+            fetch(SCRIPT_URL + "?action=register", {
                 method: 'POST',
                 headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // Apps Script CORS yêu cầu gửi dạng text/plain
                 body: JSON.stringify(formData)
