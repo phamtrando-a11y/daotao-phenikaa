@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 duration: formObj.get('duration') || '',
                 startDate: formObj.get('startDate') || '',
                 endDate: formObj.get('endDate') || '',
-                fee: 1000 // Mức phí test 1000đ
+                fee: 10000 // Mức phí test 10000đ
             };
             
             const submitBtn = form.querySelector('button[type="submit"]');
